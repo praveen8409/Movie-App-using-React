@@ -9,24 +9,30 @@ class MovieCard extends Component {
             plot: "Supernatural powers shown in the movie.",
             price: 199,
             rating: 8.9,
-            stars: 0
+            stars: 0,
+            fav: false,
+            isInCart: false
         }
+
         // this.addStars = this.addStars.bind(this);
     }
 
-   
 
-    addStars = ()=>{
+
+    addStars = () => {
 
         //form 1
-        this.setState({
-           stars: this.state.stars + 0.5
-        })
+        // this.setState({
+        //    stars: this.state.stars + 0.5
+        // })
 
         //form2
-        this.setState((prevState)=>{
-            return{
-                stars : prevState.stars + 0.5
+        if (this.state.stars >= 5) {
+            return;
+        }
+        this.setState((prevState) => {
+            return {
+                stars: prevState.stars + 0.5
             }
         })
 
@@ -34,8 +40,31 @@ class MovieCard extends Component {
         // console.log("this.state.stars : ", this.state.stars);
     }
 
+    decStars = () => {
+        if (this.state.stars <= 0) {
+            return;
+        }
+        this.setState((prevState) => {
+            return {
+                stars: prevState.stars - 0.5
+            }
+        })
+    }
+
+    handlefav = () => {
+        this.setState({
+            fav: !this.state.fav
+        })
+    }
+
+    toggleCart= () => {
+        this.setState({
+            isInCart: !this.state.isInCart
+        })
+     }
+
     render() {
-        const { title, plot, price, rating,stars } = this.state;
+        const { title, plot, price, rating, stars, fav,isInCart } = this.state;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -50,13 +79,20 @@ class MovieCard extends Component {
                         <div className="footer">
                             <div className="rating">{rating}</div>
                             <div className="star-dis">
-                                <img className="str-btn" alt="decrease" src="https://cdn-icons-png.flaticon.com/128/10337/10337430.png" />
+                                <img className="str-btn" alt="decrease" src="https://cdn-icons-png.flaticon.com/128/10337/10337430.png" onClick={this.decStars} />
                                 <img alt="star" src="https://cdn-icons-png.flaticon.com/128/2107/2107957.png" className="stars" />
                                 <img className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/10337/10337471.png" onClick={this.addStars} />
                                 <span>{stars}</span>
                             </div>
-                            <div className="favourite-btn">Favourite</div>
-                            <div className="cart-btn">Add to Cart</div>
+
+                            {/* {fav ? <button className="unfavourite-btn" onClick={this.handlefav}>Un-Favourite</button> :
+                                <button className="favourite-btn" onClick={this.handlefav}>Favourite</button>} */}
+
+                            <button className={fav?"unfavourite-btn":"favourite-btn"} onClick={this.handlefav}>{fav?"unfavourite-btn":"favourite-btn"}</button>
+
+                             <button className={isInCart?"unfavourite-btn":"cart-btn"}  onClick={this.toggleCart}>
+                            {isInCart ? "Remove from Cart":"Add to Cart"}
+                        </button>
                         </div>
                     </div>
                 </div>
