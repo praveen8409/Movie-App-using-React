@@ -2,20 +2,20 @@ import { Component } from "react";
 import avangers from "./avengers.jpg"
 
 class MovieCard extends Component {
-    constructor() {
-        super();
-        this.state = {
-            title: "The Avengers!",
-            plot: "Supernatural powers shown in the movie.",
-            price: 199,
-            rating: 8.9,
-            stars: 0,
-            fav: false,
-            isInCart: false
-        }
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         title: "The Avengers!",
+    //         plot: "Supernatural powers shown in the movie.",
+    //         price: 199,
+    //         rating: 8.9,
+    //         stars: 0,
+    //         fav: false,
+    //         isInCart: false
+    //     }
 
-        // this.addStars = this.addStars.bind(this);
-    }
+    //     // this.addStars = this.addStars.bind(this);
+    // }
 
 
 
@@ -57,14 +57,15 @@ class MovieCard extends Component {
         })
     }
 
-    toggleCart= () => {
+    toggleCart = () => {
         this.setState({
             isInCart: !this.state.isInCart
         })
-     }
+    }
 
     render() {
-        const { title, plot, price, rating, stars, fav,isInCart } = this.state;
+        const { title, plot, price, rating, stars, fav, isInCart } = this.props;
+        console.log(this.props)
         return (
             <div className="main">
                 <div className="movie-card">
@@ -88,11 +89,12 @@ class MovieCard extends Component {
                             {/* {fav ? <button className="unfavourite-btn" onClick={this.handlefav}>Un-Favourite</button> :
                                 <button className="favourite-btn" onClick={this.handlefav}>Favourite</button>} */}
 
-                            <button className={fav?"unfavourite-btn":"favourite-btn"} onClick={this.handlefav}>{fav?"unfavourite-btn":"favourite-btn"}</button>
+                            <button className={fav ? "unfavourite-btn" : "favourite-btn"} onClick={this.handlefav}>
+                                {fav ? "unfavourite-btn" : "favourite-btn"}</button>
 
-                             <button className={isInCart?"unfavourite-btn":"cart-btn"}  onClick={this.toggleCart}>
-                            {isInCart ? "Remove from Cart":"Add to Cart"}
-                        </button>
+                            <button className={isInCart ? "unfavourite-btn" : "cart-btn"} onClick={this.toggleCart}>
+                                {isInCart ? "Remove from Cart" : "Add to Cart"}
+                            </button>
                         </div>
                     </div>
                 </div>
