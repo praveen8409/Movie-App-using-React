@@ -1,6 +1,7 @@
 import { Component } from "react";
 import avangers from "./avengers.jpg"
 
+
 class MovieCard extends Component {
     // constructor() {
     //     super();
@@ -64,8 +65,10 @@ class MovieCard extends Component {
     }
 
     render() {
-        const { title, plot, price, rating, stars, fav, isInCart } = this.props;
         console.log(this.props)
+        
+        const { title, plot, price, rating, stars, fav, isInCart } = this.props.movies;
+        
         return (
             <div className="main">
                 <div className="movie-card">

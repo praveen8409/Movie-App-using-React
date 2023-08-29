@@ -16,16 +16,11 @@ class MovieList extends Component{
 
     }
     render(){
-        const { title, plot, price, rating, stars, fav, isInCart } = this.state;
+        // const { title, plot, price, rating, stars, fav, isInCart } = this.state;
         return(
          <>
-            <MovieCard title={title}
-                        plot={plot}
-                        price={price}
-                        rating={rating}
-                        stars={stars}
-                        fav={fav}
-                        isInCart={isInCart}/>
+            <MovieCard movies = {this.state}/>
+            <MovieCard movies = {this.state}/>
             
             </>
         )
