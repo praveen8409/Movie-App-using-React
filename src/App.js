@@ -1,22 +1,16 @@
-import Student from "./Student"
+import MovieList from "./MovieList";
+import Navbar from "./Navbar";
 
 
 function App() {
   return (
    <>
-   {/* <h1>Movie App</h1> */}
-  
-   <Student name="Praveen" marks={80}/>
-   <Student name="Google" marks={70}/>
-   <Student name="Alexa" marks={60}/>
-   <Student />
+   <Navbar />
+  <MovieList />
    </>
   );
 }
 
-Student.defaultProps = {
-  name : "Student",
-  marks : "N.A."
-}
+
 
 export default App;
