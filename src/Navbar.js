@@ -9,8 +9,10 @@ import styles from './Navbar.module.css'
 class Navbar extends React.Component {
 
   
+  
     render() {   
-       
+      const {cartCount} = this.props;
+
       return (
       <>
       <div className={styles.nav}>
@@ -22,7 +24,7 @@ class Navbar extends React.Component {
                    alt="Cart-Icon" 
                    src = "https://cdn-icons-png.flaticon.com/128/891/891462.png"    
               />
-              <span className ={styles.cartCount}>5</span>
+              <span className ={styles.cartCount}>{cartCount}</span>
           </div>
         </div>
 
