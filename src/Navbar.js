@@ -6,12 +6,12 @@ import styles from './Navbar.module.css'
 
 
 
-class Navbar extends React.Component {
+function Navbar(props){
 
   
   
-    render() {   
-      const {cartCount} = this.props;
+    
+      const {cartCount} = props;
 
       return (
       <>
@@ -30,7 +30,7 @@ class Navbar extends React.Component {
 
       </>
       )
-    }
+   
   }  
  
   

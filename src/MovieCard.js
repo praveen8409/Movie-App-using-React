@@ -1,15 +1,15 @@
-import { Component } from "react";
+
 import avangers from "./avengers.jpg"
 
 
-class MovieCard extends Component {
+function MovieCard(props) {
 
    
-    render() {
+    
         // console.log(this.props)
-        const {movies,addStars,decStars,toggleCart,toggleFav} = this.props;
+        const {movies,addStars,decStars,toggleCart,toggleFav} = props;
         
-        const { title, plot, price, rating, star, fav, isInCart } = this.props.movies;
+        const { title, plot, price, rating, star, fav, isInCart } = props.movies;
         
         
         return (
@@ -47,7 +47,7 @@ class MovieCard extends Component {
                 </div>
             </div>
         )
-    }
+    
 
 }
 
